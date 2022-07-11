@@ -1,0 +1,25 @@
+@import "variables";
+@import "tarjetas";
+@import "body";
+@import "nav";
+@import "header";
+@import "footer";
+@import "main";
+@import "mixins";
+@import "button";
+
+
+*{margin: 0px;
+    padding: 0px;
+    
+    }
+    
+
+.logo{image-resolution: 32px;
+    margin-left: 15px;
+    border-radius: 8px;
+}
+.nav-item{
+    font-size: 20px;
+    margin-left: 20px;
+}

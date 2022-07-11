@@ -1,0 +1,20 @@
+body {
+  background-color: gray;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.logo {
+  image-resolution: 32px;
+  margin-left: 15px;
+  border-radius: 8px;
+}
+
+.nav-item {
+  font-size: 20px;
+  margin-left: 20px;
+}
+/*# sourceMappingURL=style.css.map */
