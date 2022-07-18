@@ -1,57 +1,45 @@
-class Productos {
-    constructor (nombre, categoria, precio, stock){
-        this.nombre=nombre
-        this.categoria=categoria
-        this.precio=parseFloat(precio)
-        this.stock= parseInt(stock)
-    }
+let contrasena = '12';
+let ingresoPsw = prompt('Bienvenido a "MINOTAUR INVESTEMENTS": \n Ingresa tu Contraseña');
+let intentos = 3;
 
-    comprar(cant){
-
-        if(this.stock >= cant){
-            this.stock=this.stock - cant
-
-            console.log(`quedan ${this.stock} - ${this.nombre}`)
-
-        }else{
-            console.log('No tenemos el stock de ese producto')
-        }
-        
-        
-        // return this.stock
-    }
-    cargarstock (cant){
-        this.stock=this.stock + cant
+while ((ingresoPsw != contrasena)){
+    intentos--;
+    alert ('Contraseña Incorrecta... Te quedan '+' ' + intentos + ' '+ 'oportunidades');
+    ingresoPsw = prompt('Ingresa Nuevamente');
+    if (intentos == 0){
+        alert ('te quedaste sin intentos');
+        break;
     }
     
 }
 
-const remera=new Productos('remera', 'merchandising', 1500, 20)
-// console.log (remera)
-// remera.color= 'negra'
-// console.log(remera.color)
-const agenda=new Productos('agenda', 'merchandising', 900, 30)
-const lapicera=new Productos('lapicera', 'merchandising', 300,50)
-const gorra=new Productos('gorra', 'merchandising', 850, 10)
+class Producto {
+    constructor(nombre, precio,categoria){
+        this.nombre = nombre.toUpperCase();
+        this.precio = parseFloat (precio)
+        this.categoria = categoria
 
-let cantidad = parseInt (prompt('Cuantas remeras queres comprar?'))
+    }
+}
+let listaProductos = [
+    {nombre: 'remera', precio: 2500,categoria:'indumentaria'},
+    {nombre: 'agenda', precio: 2300,categoria:'papeleria'},
+    {nombre: 'computadora',precio: 20000,categoria:'informatica'},
 
-console.log(remera)
+]
+const agregarProducto= ()=> {
+    let nombre= prompt('Se ingresa producto')
+    let precio= parseFloat(prompt('Ingresa el precio'))
+    let categoria= prompt('ingresa la Categoria');
 
-remera.comprar(cantidad)
+    let productoNuevo = new Producto(nombre,precio,categoria);
+    listaProductos.push(productoNuevo);
+    console.log(listaProductos)
+}
 
-console.log(remera)
+agregarProducto()
 
-remera.cargarstock(13)
+for (let producto of listaProductos){
+    console.log(`Este articulo es ${producto.nombre}, su precio es ${producto.precio}, pertenece a la categoria: ${producto.categoria}`)
+}
 
-console.log(remera)
-
-//---------------------------------Cargar Producto
-
-let nombreProducto = prompt('Nombre del Producto')
-let categoriaProducto= prompt('Categoria')
-let precioProducto= prompt('Precio de Producto')
-let stockProducto= prompt('cual es su stock?')
-
-const nuevoProducto = new Productos(nombreProducto, categoriaProducto, precioProducto, stockProducto)
-console.log(nombreProducto)

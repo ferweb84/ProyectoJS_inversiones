@@ -13,37 +13,6 @@ while ((ingresoPsw != contrasena)){
     
 }
 
-
-// let q= prompt('Ingrese cantidad de consultas');
-
-// const cotizacion = 273;
-// const texto= "Dolar Blue a :";
-// alert (texto + cotizacion);
-
-// for(let i=1; i<=q; i++){
-//     let entreda=prompt('Ingresar pesos'); 
-//     alert((entreda/cotizacion).toFixed(2)+"Dolares "+"/n");
-// }
-
-// const sumar = (num1, num2)=> num1 + num2
-// console.log(sumar(5, 6 ))
-// const restar = (num1, num2)=> num1 - num2
-// console.log(sumar(5, 6 ))
-// const multiplicar = (num1, num2)=> num1 * num2
-// console.log(sumar(5, 6 ))
-// const dividir = (num1, num2)=> num1 / num2
-// console.log(sumar(5, 6 ))
-
-// let variable1 = 'hola'
-// function mostrarSaludo (){
-//     let variable2 = 'chau'
-//     let variable1 = variable2 +' '+ 'saludos'
-//     console.log(variable1)
-// }
-// console.log (mostrarSaludo())
-// console.log (variable1)
-
-
 const cryptoBtc={
     ticker: 'Bitcoin',
     cantidadBtccomprado:0.02,
@@ -63,21 +32,7 @@ const cryptoEth={
     porcentajeGanancOperdida:-48.56,
     valorUsdtAhora:281.05,
 }
-// console.log(crypto.priceMarket)
 
-// crypto.valorUsdtahora
-
-// console.log(crypto.valorUsdtahora)
-
-// let cantidadDeCompra = parseFloat(prompt('Que cantidad quieres comprar?'))
-
-// function calcularvalorUsdtAhora(cant){
-    
-//     cripto.valorUsdtAhora=coins * precioMercado
-
-//     console.log (`tenes ${cantidadUsdtcomprado} de Bitcoin`)
-// }
-// calcularCantCrypto(cantidadUsdtcomprado)
 
 let cantidadBtccomprado = parseFloat(prompt('Que cantidad de Bitcoin quiere comprar o compraste?'))
 
@@ -90,15 +45,6 @@ function calcularValorAhora (coins){
 calcularValorAhora(cantidadBtccomprado)
 
 
-// let cantidadEthcomprado = parseFloat(prompt('Que cantidad de Ethereum quiere comprar o compraste?'))
-
-// function calcularValorAhora (coins){
-
-//     cryptoEth.valorAhora=cryptoEth.valorAhora * coins
-//     console.log (`Usted tiene ${cryptoEth.valorAhora} en Usdt `)
-
-// }
-// calcularValorAhora(cantidadEthcomprado)
 
 class Productos {
     constructor (nombre, categoria, precio, stock){
