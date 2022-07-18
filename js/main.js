@@ -1,4 +1,4 @@
-let contrasena = 'coder1234';
+let contrasena = '12';
 let ingresoPsw = prompt('Bienvenido a "MINOTAUR INVESTEMENTS": \n Ingresa tu Contraseña');
 let intentos = 3;
 
