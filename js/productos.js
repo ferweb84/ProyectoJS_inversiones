@@ -1,17 +1,17 @@
-// let contrasena = '12';
-// let ingresoPsw = prompt('Bienvenido a "MINOTAUR INVESTEMENTS": \n Ingresa tu Contraseña');
-// let intentos = 3;
+let contrasena = '12';
+let ingresoPsw = prompt('Bienvenido a "MINOTAUR INVESTEMENTS": \n Ingresa tu Contraseña');
+let intentos = 3;
 
-// while ((ingresoPsw != contrasena)){
-//     intentos--;
-//     alert ('Contraseña Incorrecta... Te quedan '+' ' + intentos + ' '+ 'oportunidades');
-//     ingresoPsw = prompt('Ingresa Nuevamente');
-//     if (intentos == 0){
-//         alert ('te quedaste sin intentos');
-//         break;
-//     }
+while ((ingresoPsw != contrasena)){
+    intentos--;
+    alert ('Contraseña Incorrecta... Te quedan '+' ' + intentos + ' '+ 'oportunidades');
+    ingresoPsw = prompt('Ingresa Nuevamente');
+    if (intentos == 0){
+        alert ('te quedaste sin intentos');
+        break;
+    }
     
-// }
+}
 
 class Producto {
     constructor(nombre, precio,categoria){
@@ -57,8 +57,9 @@ if (listaProductos.some (el => el.nombre == search)){
 // } else {
 //     alert('ese producto no existe');
 // }
+
 let buscaxPrecio = parseInt (prompt ('Hasta que Precio??'));
-let buscaPrecio= listaProductos.filter (el => el.precio <= buscaxPrecio);
+let buscaPrecio= listaProductos.filter(el => el.precio <= buscaxPrecio);
 console.log (buscaPrecio);
 
 //map para actualizar precio de productos 
@@ -66,51 +67,23 @@ let listaConIva = listaProductos.map ((producto)=>{
     return{
         nombre:producto.nombre,
         precio:producto.precio *1.21,
-        categoria:producto.categoria
+        categoria:producto.categoria,
     }
 })
 
-//acumulador como si fueramos ir sumando al carrito
+//acumulador como si fueramos ir sumando al carrito / Descuento 20% preguntar porque no funciona
 const sumaCarrito=listaProductos.reduce((acu, prod)=> acu + prod.precio , 0);
 console.log(`el total a pagar es ${sumaCarrito}`)
 
-/*
-const agregarProducto= ()=> {
-    let nombre= prompt('Se ingresa producto')
-    let precio= parseFloat(prompt('Ingresa el precio'))
-    let categoria= prompt('ingresa la Categoria');
 
-    let productoNuevo = new Producto(nombre,precio,categoria);
-    listaProductos.push(productoNuevo);
-    console.log(listaProductos)
-}
 
-agregarProducto()
-
-for (let producto of listaProductos){
-    console.log(`Este articulo es ${producto.nombre}, su precio es ${producto.precio}, pertenece a la categoria: ${producto.categoria}`)
-}
-
-//FUNCIONES DE ORDEN SUPERIOR 
-/*function porCadaPrecioIva(array, funcion){
-    for (const elemento of array){
-        funcion(elemento)
+//sort acomodar la lista en este caso por nombre, pero podria ser por precio
+listaProductos.sort((a,b)=>{
+    if(a.nombre > b.nombre){
+        return 1
     }
-}
-let precios= [3000,2500,1800, 80000,700];
-porCadaPrecioIva(precios, console.log)
-
-let total = 0;
-
-function acumulaCarrito (precios){
-    total += precios; 
-    console.log(total);
-}
-
-porCadaPrecioIva (precios, acumulaCarrito);
-
-const precioConIva= [];
-
-porCadaPrecioIva(precios, (elemento)=>{precioConIva.push(elemento*1.21);})
-
-console.log (precioConIva);*/
+    if(a.nombre < b.nombre){
+        return -1
+    }
+})
+console.log(listaProductos)
