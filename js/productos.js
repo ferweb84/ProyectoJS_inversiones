@@ -1,17 +1,19 @@
-let contrasena = '12';
-let ingresoPsw = prompt('Bienvenido a "MINOTAUR INVESTEMENTS": \n Ingresa tu Contraseña');
-let intentos = 3;
+// let contrasena = '12';
+// let ingresoPsw = prompt('Bienvenido a "MINOTAUR INVESTEMENTS": \n Ingresa tu Contraseña');
+// let intentos = 3;
 
-while ((ingresoPsw != contrasena)){
-    intentos--;
-    alert ('Contraseña Incorrecta... Te quedan '+' ' + intentos + ' '+ 'oportunidades');
-    ingresoPsw = prompt('Ingresa Nuevamente');
-    if (intentos == 0){
-        alert ('te quedaste sin intentos');
-        break;
-    }
+// while ((ingresoPsw != contrasena)){
+//     intentos--;
+//     alert ('Contraseña Incorrecta... Te quedan '+' ' + intentos + ' '+ 'oportunidades');
+//     ingresoPsw = prompt('Ingresa Nuevamente');
+//     if (intentos == 0){
+//         alert ('te quedaste sin intentos');
+//         break;
+//     }
     
-}
+// }
+//-----------------------------------------------------------------------------------------
+
 
 class Producto {
     constructor(nombre, precio,categoria){
@@ -87,3 +89,128 @@ listaProductos.sort((a,b)=>{
     }
 })
 console.log(listaProductos)
+
+
+//------------------------------------------------------------------------------------
+
+//Maneras de acceder al DOM
+
+// Por ID - nos trae solo uno, solo el objeto
+let titulo= document.getElementById('titulo');
+console.log(titulo);
+
+
+//Por Clase - nos trae un Array
+
+let parrafo = document.getElementsByClassName('parrafo');
+console.log(parrafo);
+
+//por Etiqueta
+let subtitulo= document.getElementsByTagName('h2');
+console.log(subtitulo)
+
+//por Selector -solo nos da el primero que encuentra 
+let selectorParrafo= document.querySelector('.parrafo');
+console.log(selectorParrafo);
+// document.querySelector("#titulo");
+// document.querySelector("h2");
+// document.querySelector("div form parrafo");
+
+
+//por Selectorall 
+let selectorParrrafos = document.querySelectorAll (".parrafos");
+console.log(selectorParrrafos);
+
+
+// console.log (titulo.innerText);
+
+// titulo.innerText = "cambie el titutlo";
+console.log (titulo.innerHTML);
+titulo.innerHTML= "Presentación de los productos <a href=''> Nuevos </a>";
+titulo.style.color ="#6495ED";
+// titulo.style.display ='none'
+
+titulo.className= 'container row';//solamente para el class
+titulo.setAttribute ('class','titulo1');//resetear algun Atributo 
+console.log(titulo.getAttribute('id'));//agregar algun Atributo 
+
+let lista = document.querySelectorAll('li');
+console.log(lista);
+
+lista.forEach((el)=>{
+    console.log(el.innerText);
+})
+
+//------------------------------------------------------------------------------------
+
+let elementoNuevo = document.createElement('h2');//con el metodo creo elemento nuevo
+elementoNuevo.setAttribute('id','subtitulo2');//le agrego atributos
+elementoNuevo.innerHTML ='Este es un subtitulo nuevo';//le agrego innerhtml
+let contenedor =document.getElementById('contenedor');
+contenedor.appendChild(elementoNuevo);//con el metodo se lo agrego al contenedor
+console.log(elementoNuevo);
+
+// contenedor.removeChild(elementoNuevo);//le quito el elemento nuevo 
+
+//me trae un solo objeto 
+// let merchandising = ['remera','agenda','billetera','computadora','lapicera'];
+// let ulPadre= document.querySelector('ul');
+// merchandising.forEach((el) => {
+//     let eleLista=document.createElement('li');
+//     eleLista.innerHTML = el;
+//     ulPadre.appendChild(eleLista);
+// })
+
+//me trae un array 
+let merchandising = ['remera','agenda','billetera','computadora','lapicera'];
+let ulPadre= document.getElementsByTagName('ul'); //o puedo usar queryselectorall
+merchandising.forEach((el) => {
+    let eleLista=document.createElement('li');
+    eleLista.innerHTML = el;
+    ulPadre[0].appendChild(eleLista);
+})
+
+let nombre = document.getElementById("nombre").value;
+console.log(nombre);
+
+
+let listaProductosAgregados = [
+    {nombre: 'remera', precio: 3000,categoria:' indumentaria'},
+    {nombre: 'gorra', precio: 2500,categoria:' indumentaria'},
+    {nombre: 'agenda', precio: 1800,categoria:'papeleria'},
+    {nombre: 'computadora',precio: 80000,categoria:' informatica'},
+    {nombre: 'lapicera', precio: 700,categoria:' papeleria'},
+];
+const guardarDatos= ()=> {
+    let nombre = document.getElementById('nombre').value;
+    let precio = document.getElementById('precio').value;
+    let categoria = document.getElementById('categoria').value;
+
+    let nuevoProd= new Producto (nombre, precio, categoria);
+    listaProductosAgregados.push(nuevoProd);
+    return nuevoProd;//en consola llamar a la funcion guardarDatos()
+}
+// function AgregarHtml(){
+//     listaProductosAgregados.forEach((prod) =>{
+//         let nodo= document.createElement('div');
+//         nodo.innerHTML= `<h3>${prod.nombre}</h3>
+//         <span> ${prod.precio}</span> 
+//         <p>${prod.categoria}</p>`
+        
+//         contenedor.append (nodo);
+    
+//     })
+
+// }
+
+    listaProductosAgregados.forEach((prod) =>{
+        let nodo= document.createElement('div');
+        nodo.innerHTML= `<h3>${prod.nombre}</h3>
+        <span> ${prod.precio}</span> 
+        <p>${prod.categoria}</p>`
+        
+        contenedor.append (nodo);
+    
+    })
+
+
