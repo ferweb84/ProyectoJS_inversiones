@@ -1,71 +1,29 @@
 
-
-let cantidadBtccomprado = parseFloat(prompt('Que cantidad de Bitcoin quiere comprar o compraste?'))
-
-function calcularValorAhora (coins){
-
-    cryptoBtc.valorAhora=cryptoBtc.valorAhora * coins
-    console.log (`Usted tiene ${cryptoBtc.valorAhora} en Usdt `)
-
-}
-calcularValorAhora(cantidadBtccomprado)
-
-
-
-class Productos {
-    constructor (nombre, categoria, precio, stock){
-        this.nombre=nombre
-        this.categoria=categoria
-        this.precio=parseFloat(precio)
-        this.stock= parseInt(stock)
-    }
-
-    comprar(cant){
-
-        if(this.stock >= cant){
-            this.stock=this.stock - cant
-
-            console.log(`quedan ${this.stock} - ${this.nombre}`)
-
-        }else{
-            console.log('No tenemos el stock de ese producto')
-        }
-        
-        
-        // return this.stock
-    }
-    cargarstock (cant){
-        this.stock=this.stock + cant
-    }
+const select = document.querySelector("#ticker");
+ticker.addEventListener("change",()=>{
+    console.log (`Seleccionaste la Criptomoneda ${ticker.value}`);
     
+})
+text.addEventListener("keydown",(e)=>{
+    console.log(`el nuevo valor es ${e.keyCode}`);
+})
+
+
+// const select1 = document.querySelector("#ticker");
+// ticker.addEventListener("input",()=>{
+//     console.log (`Seleccionaste la Criptomoneda ${ticker.value}`);
+    
+// })
+
+
+const link = document.querySelector("#fuentes");
+link.onclick = (e) => {
+    e.preventDefault();
+    console.log("frene el comportamiento de google finance");
 }
 
-const remera=new Productos('remera', 'merchandising', 1500, 20)
-// console.log (remera)
-// remera.color= 'negra'
-// console.log(remera.color)
-const agenda=new Productos('agenda', 'merchandising', 900, 30)
-const lapicera=new Productos('lapicera', 'merchandising', 300,50)
-const gorra=new Productos('gorra', 'merchandising', 850, 10)
-
-let cantidad = parseInt (prompt('Cuantas remeras queres comprar?'))
-
-console.log(remera)
-
-remera.comprar(cantidad)
-
-console.log(remera)
-
-remera.cargarstock(13)
-
-console.log(remera)
-
-//---------------------------------Cargar Producto
-
-let nombreProducto = prompt('Nombre del Producto')
-let categoriaProducto= prompt('Categoria')
-let precioProducto= prompt('Precio de Producto')
-let stockProducto= prompt('cual es su stock?')
-
-const nuevoProducto = new Productos(nombreProducto, categoriaProducto, precioProducto, stockProducto)
-console.log(nombreProducto)
+const formulario = document.querySelector("#formulario");
+formulario.addEventListener("submit",(e)=> {
+    e.preventDefault();
+    console.log("se envio el Formulario")
+})
